@@ -1,0 +1,207 @@
+/* ── Bubble ─────────────────────────────────────────────────────────────────── */
+#fs-bubble {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: var(--fs-primary, #2563eb);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, .28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9998;
+  transition: transform .18s ease;
+}
+#fs-bubble:hover { transform: scale(1.1); }
+#fs-bubble svg   { fill: #fff; width: 26px; height: 26px; pointer-events: none; }
+
+/* ── Panel ──────────────────────────────────────────────────────────────────── */
+#fs-panel {
+  position: fixed;
+  bottom: 96px;
+  right: 24px;
+  width: 360px;
+  max-height: 82vh;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, .18);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 9999;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  transition: opacity .2s ease, transform .2s ease;
+}
+#fs-panel.fs-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(14px);
+}
+
+/* ── Header ─────────────────────────────────────────────────────────────────── */
+.fs-header {
+  background: var(--fs-primary, #2563eb);
+  color: #fff;
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.fs-header-icon {
+  width: 36px;
+  height: 36px;
+  background: rgba(255,255,255,.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.fs-header-icon svg { fill: #fff; width: 18px; height: 18px; }
+.fs-header-text h3  { margin: 0; font-size: 15px; font-weight: 700; }
+.fs-header-text p   { margin: 2px 0 0; font-size: 12px; opacity: .85; }
+.fs-close {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  opacity: .75;
+  padding: 0 4px;
+  flex-shrink: 0;
+}
+.fs-close:hover { opacity: 1; }
+
+/* ── Body ───────────────────────────────────────────────────────────────────── */
+.fs-body { padding: 20px; overflow-y: auto; flex: 1; }
+
+/* ── Steps ──────────────────────────────────────────────────────────────────── */
+.fs-step { display: none; }
+.fs-step.fs-active { display: block; }
+
+/* ── Form elements ──────────────────────────────────────────────────────────── */
+.fs-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 5px;
+}
+.fs-input {
+  width: 100%;
+  padding: 10px 13px;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 9px;
+  font-size: 15px;
+  box-sizing: border-box;
+  margin-bottom: 14px;
+  outline: none;
+  transition: border-color .15s;
+  background: #fafafa;
+}
+.fs-input:focus { border-color: var(--fs-primary, #2563eb); background: #fff; }
+
+.fs-btn {
+  width: 100%;
+  padding: 12px 18px;
+  background: var(--fs-primary, #2563eb);
+  color: #fff;
+  border: none;
+  border-radius: 9px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity .15s;
+  margin-top: 2px;
+}
+.fs-btn:hover    { opacity: .9; }
+.fs-btn:disabled { opacity: .55; cursor: not-allowed; }
+.fs-btn-secondary {
+  width: 100%;
+  padding: 10px 18px;
+  background: #f3f4f6;
+  color: #374151;
+  border: none;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background .15s;
+}
+.fs-btn-secondary:hover { background: #e5e7eb; }
+
+/* ── Selfie area ────────────────────────────────────────────────────────────── */
+.fs-selfie-wrap { margin-bottom: 14px; }
+.fs-video, .fs-preview {
+  width: 100%;
+  max-height: 210px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  display: none;
+}
+.fs-upload-label {
+  display: block;
+  padding: 11px 14px;
+  border: 2px dashed #d1d5db;
+  border-radius: 9px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 14px;
+  color: #6b7280;
+  transition: border-color .15s;
+  margin-bottom: 8px;
+}
+.fs-upload-label:hover { border-color: var(--fs-primary, #2563eb); color: var(--fs-primary, #2563eb); }
+
+/* ── Messages ───────────────────────────────────────────────────────────────── */
+.fs-msg {
+  padding: 10px 13px;
+  border-radius: 8px;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+.fs-msg-error   { background: #fef2f2; color: #dc2626; }
+.fs-msg-success { background: #f0fdf4; color: #16a34a; }
+.fs-msg-info    { background: #eff6ff; color: #2563eb; }
+
+/* ── Gallery ────────────────────────────────────────────────────────────────── */
+.fs-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-top: 12px;
+}
+.fs-gallery a { display: block; border-radius: 8px; overflow: hidden; }
+.fs-gallery img {
+  width: 100%;
+  height: 118px;
+  object-fit: cover;
+  transition: transform .18s;
+  display: block;
+}
+.fs-gallery a:hover img { transform: scale(1.04); }
+
+.fs-empty {
+  text-align: center;
+  padding: 28px 0 12px;
+  color: #6b7280;
+  font-size: 14px;
+}
+.fs-empty span { font-size: 36px; display: block; margin-bottom: 8px; }
+
+/* ── Responsive ─────────────────────────────────────────────────────────────── */
+@media (max-width: 420px) {
+  #fs-panel  { width: calc(100vw - 24px); right: 12px; bottom: 82px; }
+  #fs-bubble { bottom: 16px; right: 16px; }
+}
